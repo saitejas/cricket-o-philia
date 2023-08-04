@@ -27,6 +27,7 @@ export default function Players() {
     const [playersData, setPlayersData] = useState<TPlayer[]>(data);
     const [origPlayersData, setOrigPlayersData] = useState<TPlayer[]>(data);
     const [searchTerm, setSearchTerm] = useState('');
+    const [filterType, setFilterType] = useState('');
 
     const startIndex = (currentPage - 1) * pageSize;
     const endIndex = startIndex + pageSize;
@@ -36,12 +37,16 @@ export default function Players() {
     const totalPages = Math.ceil(playersData.length / pageSize);
 
     const returnFilteredData = useCallback(() => {
-      const filteredData = playersData.filter((item) => {
+      const filteredData = playersData
+      .filter((item) => {
         const itemName = item?.name;
-        return itemName?.toLowerCase().includes(searchTerm.toLowerCase())
-      });
+          return itemName?.toLowerCase().includes(searchTerm.toLowerCase())
+      })
+      .filter((item) =>
+        filterType ? item.type === filterType : true
+      );
       return filteredData;
-    }, [playersData, searchTerm])
+    }, [filterType, playersData, searchTerm])
 
     useEffect(() => {
       const sorted = data.slice().sort((a: any, b: any) => {
@@ -61,12 +66,11 @@ export default function Players() {
     }, [data, sortKey, sortDirection]);
 
     useEffect(() => {
-      const filteredData = searchTerm && searchTerm !== ''
+      const filteredData = (searchTerm && searchTerm !== '') || filterType !== ''
       ? returnFilteredData()
       : origPlayersData;
       setPlayersData(filteredData);
-
-    }, [origPlayersData, playersData, returnFilteredData, searchTerm]);
+    }, [origPlayersData, playersData, returnFilteredData, searchTerm, filterType]);
 
     const handlePageChange = (page: number) => {
       setCurrentPage(page);
@@ -83,8 +87,8 @@ export default function Players() {
 
     return (
       <div className="overflow-x-auto">
-        <div className={'flex justify-center m-[20px]'}>
-          <div className={'w-[80%]'}>
+        <div className={'flex justify-between items-center m-[20px]'}>
+          <div className={'w-[70%]'}>
             <input
               type="text"
               placeholder="Search by name..."
@@ -93,8 +97,21 @@ export default function Players() {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
+          <div className={'w-[25%]'}>
+          <select
+            className="px-3 py-2 border border-gray-400 rounded w-full"
+            value={filterType}
+            onChange={(e) => setFilterType(e.target.value)}
+          >
+            <option value="">All Types</option>
+            <option value="batsman">Batsman</option>
+            <option value="bowler">Bowler</option>
+            <option value="allRounder">All Rounder</option>
+          </select>
+          </div>
         </div>
-        <div className="shadow-lg overflow-hidden border border-gray-300 rounded-lg">
+        {playersData.length > 0 && <div>
+          <div className="shadow-lg overflow-hidden border border-gray-300 rounded-lg">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
               <tr>
@@ -168,6 +185,7 @@ export default function Players() {
             </button>
           </nav>
         </div>
+        </div>}
       </div>
     );
   };
