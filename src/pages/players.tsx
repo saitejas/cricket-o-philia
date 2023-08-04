@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import getPlayers from "../service/get-players";
 import { TPlayer } from "../constants/types";
 import { readFromStorage, writeToStorage } from "../service/localStorage";
+import { useNavigate } from "react-router-dom";
 
 export default function Players() {
   const [isDataLoading, setIsDataLoading] = useState<boolean>(true);
@@ -33,6 +34,7 @@ export default function Players() {
     const [filterType, setFilterType] = useState(
       readFromStorage("filterType") ?? ""
     );
+    const navigate = useNavigate();
 
     const startIndex = (currentPage - 1) * pageSize;
     const endIndex = startIndex + pageSize;
@@ -149,6 +151,7 @@ export default function Players() {
                       {Object.keys(playersData[0]).map((key: any) => (
                         <td
                           key={key}
+                          onClick={() => navigate('/player', {state:{playerDetails: paginatedData[index]}})}
                           className={`px-6 py-4 ${
                             String(item[key as keyof TPlayer] || "").length >
                             100
