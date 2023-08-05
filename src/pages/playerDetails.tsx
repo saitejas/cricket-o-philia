@@ -1,8 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { TPlayer } from '../constants/types';
 import getPlayers from '../service/get-players';
 import { useNavigate } from "react-router-dom";
+import { getSimilarPlayers, getSimilarPlayersToBeDisplayed } from '../service/playerDetails';
 
 export default function PlayerDetails(){
     const {state : {playerDetails}} = useLocation();
@@ -18,7 +20,7 @@ export default function PlayerDetails(){
   }, []);
 
   useEffect(()=>{
-    findSimilarPlayers(playersData);
+    findSimilarPlayers(playersData, currentPlayer);
   }, [currentPlayer])
 
   const fetchPlayersData = async () => {
@@ -26,37 +28,23 @@ export default function PlayerDetails(){
     const response = await getPlayers();
     if (response) {
         setPlayersData(response);
-        findSimilarPlayers(response);
+        findSimilarPlayers(response, currentPlayer);
     }
     setIsDataLoading(false);
   };
 
-  const findSimilarPlayers = (playersData: TPlayer[]) => {
-    const tempSimilarPlayers = playersData.filter((player: TPlayer) => player.type === currentPlayer.type && player.id !== currentPlayer.id)
+  const findSimilarPlayers = (playersData: TPlayer[], currentPlayer: TPlayer) => {
+    const tempSimilarPlayers = getSimilarPlayers(playersData, currentPlayer);
     setSimilarPlayers(tempSimilarPlayers);
   }
 
-  const getSimilarPlayersToBeDisplayed = (similarPlayers: TPlayer[]) => {
-    if(similarPlayers.length <= maxSimilarPlayersToBeDisplayed){
-        return similarPlayers;
-    }
-    const similarPlayersToBeDisplayed: TPlayer[] = [];
-    while (similarPlayersToBeDisplayed.length < maxSimilarPlayersToBeDisplayed) {
-      const randomIndex = Math.floor(Math.random() * similarPlayers.length);
-      const randomSimilarPlayer = similarPlayers[randomIndex];
-      if (!similarPlayersToBeDisplayed.includes(randomSimilarPlayer)) {
-        similarPlayersToBeDisplayed.push(randomSimilarPlayer);
-      }
-    }
-    return similarPlayersToBeDisplayed;
-  }
     return(
         <div>
             <img onClick={() => navigate('/')} className={'w-[20px] h-[20px]'} alt='back' src={require('../assets/images/back.png')} />
             player details
             {currentPlayer?.name}
             {similarPlayers.length && (
-                getSimilarPlayersToBeDisplayed(similarPlayers).map((player, index) =>{
+                getSimilarPlayersToBeDisplayed(similarPlayers, maxSimilarPlayersToBeDisplayed).map((player, index) =>{
                     return <div key={index} onClick={() => setCurrentPlayer(player)}>{player.name}</div>
                 })
             )}

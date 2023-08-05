@@ -4,10 +4,10 @@ export const writeToStorage = (key: string, data: any) =>{
 
 export const readFromStorage = (key: string) => {
     const data = localStorage.getItem(key);
-    if(data){
-        try{
+    if (data) {
+        try {
             return JSON.parse(data);
-        }catch{
+        } catch {
             return data
         }
     }
