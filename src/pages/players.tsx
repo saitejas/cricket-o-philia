@@ -4,6 +4,7 @@ import getPlayers from "../service/get-players";
 import { TPlayer } from "../constants/types";
 import { PlayersTable } from "../components/playerTable";
 import { useNavigate } from "react-router-dom";
+import { Loader } from "../components/loader";
 
 export default function Players() {
   const [isDataLoading, setIsDataLoading] = useState<boolean>(true);
@@ -25,7 +26,16 @@ export default function Players() {
 
   return (
     <div>
-      {isDataLoading ? <div></div> : <PlayersTable data={playersData} navigate={navigate} />}
+      <h1 className="text-center text-white text-[120px] font-handjet">Cricket-O-Philia</h1>
+      {isDataLoading ? (
+        <div>
+          <Loader />
+        </div>
+      ) : (
+        <div className="container">
+          <PlayersTable data={playersData} navigate={navigate} />
+        </div>
+      )}
     </div>
   );
 }

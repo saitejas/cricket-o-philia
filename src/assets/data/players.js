@@ -6,6 +6,7 @@ const players = [
             "Virat Kohli is an Indian international cricketer and the former captain of the Indian national cricket team who plays as a right-handed batsman for Royal Challengers Bangalore in the IPL and for the Delhi in Indian domestic cricket.",
         type: "batsman",
         points: 282,
+        avatar: 'https://resources.pulse.icc-cricket.com/players/130x150/164.png',
         dob: 594691200000,
     },
     {
@@ -15,6 +16,7 @@ const players = [
             "Rohit Gurunath Sharma, is an Indian international cricketer and the current captain of India men’s cricket team in all formats. Considered one of the best batsmen of his generation and one of greatest opening batters of all time, Sharma is known for his timing, elegance, six-hitting abilities and leadership skills.",
         type: "bowler",
         points: 234,
+        avatar: 'https://resources.pulse.icc-cricket.com/players/130x150/107.png',
         dob: 546739200000,
     },
     {
@@ -24,6 +26,7 @@ const players = [
             "Sachin Ramesh Tendulkar, AO is an Indian former international cricketer who captained the Indian national team. He is regarded as one of the greatest batsmen in the history of cricket. He is the all-time highest run-scorer in both ODI and Test cricket with more than 18,000 runs and 15,000 runs, respectively.",
         type: "allRounder",
         points: 532,
+        avatar: 'https://resources.pulse.icc-cricket.com/players/130x150/Photo-Missing.png',
         dob: 104457600000,
     },
     {
@@ -33,6 +36,7 @@ const players = [
             "Mahendra Singh Dhoni, commonly known as MS Dhoni, is a former Indian cricketer and captain of the Indian national team in limited-overs formats from 2007 to 2017 and in Test cricket from 2008 to 2014, who plays as a Wicket-keeper-Batsman.",
         type: "batsman",
         points: 344,
+        avatar: 'https://resources.pulse.icc-cricket.com/players/130x150/1.png',
         dob: 363312000000,
     },
     {
@@ -42,6 +46,7 @@ const players = [
             "Ravindrasinh Anirudhsinh Jadeja, commonly known as Ravindra Jadeja, is an Indian international cricketer. He is an all-rounder, who bats left-handed and bowls left-arm orthodox spin. He was the captain of the Chennai Super Kings in the Indian Premier League. He represents Saurashtra in first-class cricket.",
         type: "allRounder",
         points: 542,
+        avatar: 'https://resources.pulse.icc-cricket.com/players/130x150/9.png',
         dob: 597369600000,
     },
     {
@@ -50,6 +55,7 @@ const players = [
         description:
             "Rahul Sharad Dravid is an Indian cricket coach and former captain of the Indian national team, currently serving as its head coach. Prior to his appointment to the senior men's national team, Dravid was the Head of Cricket at the National Cricket Academy, and the head coach of the India Under-19 and India A teams.",
         points: 211,
+        avatar: 'https://resources.pulse.icc-cricket.com/players/130x150/Photo-Missing.png',
         dob: 95558400000,
     },
     {
@@ -59,6 +65,7 @@ const players = [
             "Ravichandran Ashwin is an Indian international cricketer who plays for the Indian cricket team. He currently plays for Tamil Nadu in domestic cricket and Rajasthan Royals in the Indian Premier League.",
         type: "allRounder",
         points: 223,
+        avatar: 'https://resources.pulse.icc-cricket.com/players/130x150/8.png',
         dob: 527299200000,
     },
     {
@@ -68,6 +75,7 @@ const players = [
             "Yuzvendra Chahal is an Indian international cricketer who plays for the Indian cricket team in white ball cricket as a leg spin bowler. He plays for Haryana in domestic cricket and Rajasthan Royals in the Indian Premier League. He is a Right-arm leg break bowler.",
         type: "bowler",
         points: 230,
+        avatar: 'https://resources.pulse.icc-cricket.com/players/130x150/111.png',
         dob: 648691200000,
     },
     {
@@ -77,6 +85,7 @@ const players = [
             "Hardik Himanshu Pandya (born 11 October 1993) is an Indian international cricketer who is the current vice-captain of the Indian cricket team in limited overs. An All-rounder who bats right-handed and bowls right-arm fast-medium, Pandya has played in all 3 formats for India. He also plays for Baroda cricket team in domestic cricket and captains the newly debuted franchise Gujarat Titans in the Indian Premier League (IPL) and led them to their maiden IPL title in the 2022 edition. His elder brother Krunal Pandya is also a cricketer.",
         type: "allRounder",
         points: 301,
+        avatar: 'https://resources.pulse.icc-cricket.com/players/130x150/2740.png',
         dob: 750297600000,
     },
     {
@@ -86,6 +95,7 @@ const players = [
             "Rishabh Rajendra Pant (born 4 October 1997) is an Indian international cricketer who plays for the Indian cricket team as a wicket-keeper batter. Having played all formats for India, he is best known for his consistency to score runs in Test cricket. Pant plays for Delhi in domestic cricket and captains Delhi Capitals in the Indian Premier League.[3] He was the vice-captain of the India U-19 team that was runner up at the 2016 Under-19 Cricket World Cup.",
         type: "wicketKeeper",
         points: 209,
+        avatar: 'https://resources.pulse.icc-cricket.com/players/130x150/2972.png',
         dob: 875923200000,
     },
     {
@@ -95,6 +105,7 @@ const players = [
             "Arshdeep Singh (born 5 February 1999) is an Indian professional cricketer who plays for the India national cricket team.[3] In Indian domestic cricket, he plays for Punjab and for Punjab Kings in the Indian Premier League. Arshdeep is a left-arm medium-fast bowler and left-handed lower order batter.",
         type: "bowler",
         points: 301,
+        avatar: 'https://resources.pulse.icc-cricket.com/players/130x150/4698.png',
         dob: 918172800000,
     },
     {
@@ -104,6 +115,7 @@ const players = [
             "Suryakumar Ashok Yadav (born 14 September 1990) is an Indian International Cricketer. A right-handed batsman, he plays for Mumbai Indians in the Indian Premier League and for the Mumbai cricket team in Indian domestic cricket.",
         type: "batsman",
         points: 276,
+        avatar: 'https://resources.pulse.icc-cricket.com/players/130x150/108.png',
         dob: 653270400000,
     },
     {
@@ -113,6 +125,7 @@ const players = [
             "Akshar Rajeshbhai Patel,[1][2] also spelled as Axar Patel,[3][4] (born 20 January 1994) is an Indian international cricketer who plays for the Indian cricket team in all formats of the game as a bowling All-rounder. He also plays for Gujarat in domestic cricket and for the Delhi Capitals in the Indian Premier League. He is a left-handed batter and slow left-arm orthodox bowler.",
         type: "allRounder",
         points: 301,
+        avatar: 'https://resources.pulse.icc-cricket.com/players/130x150/Photo-Missing.png',
         dob: 759024000000,
     }
 ];

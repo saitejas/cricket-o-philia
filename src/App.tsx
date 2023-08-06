@@ -4,7 +4,9 @@ import CustomRouter from './routes/customRouter';
 
 function App() {
   return (
-    <CustomRouter/>
+    <div className={"w-full flex justify-center items-center"}>
+      <CustomRouter/>
+    </div>
   );
 }
 
