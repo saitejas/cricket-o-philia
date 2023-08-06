@@ -125,15 +125,16 @@ const mockData: TPlayer[] = [
 
 describe('PlayersTable', () => {
     const navigate = jest.fn();
+    const mockColumns = ['name', 'rank', 'type', 'points', 'description'];
     it('should render correctly with initial data', () => {
-      render(<PlayersTable data={mockData} navigate={navigate} />);
+      render(<PlayersTable data={mockData} onSelectingAPlayer={navigate} columns={mockColumns} />);
       
       const tableElement = screen.getByRole('table');
       expect(tableElement).toBeInTheDocument();
     });
   
     it('should filter table data by name', () => {
-      render(<PlayersTable data={mockData} navigate={navigate} />);
+      render(<PlayersTable data={mockData} onSelectingAPlayer={navigate} columns={mockColumns} />);
       
       const searchInput = screen.getByPlaceholderText('Search by name...');
       fireEvent.change(searchInput, { target: { value: 'Virat' } });
@@ -143,7 +144,7 @@ describe('PlayersTable', () => {
     });
   
     it('should filter table data by type', () => {
-      render(<PlayersTable data={mockData} navigate={navigate} />);
+      render(<PlayersTable data={mockData} onSelectingAPlayer={navigate} columns={mockColumns} />);
       
       const selectInput = screen.getByRole('combobox');
       fireEvent.change(selectInput, { target: { value: 'batsman' } });

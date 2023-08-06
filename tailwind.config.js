@@ -9,6 +9,10 @@ module.exports = {
       colors: {
         primaryBg: "#3A4D89",
         white: "#FFFFFF",
+        tableGradientFrom: "#082e4f",
+        tableGradientTo: "#08243e",
+        playerGradientFrom: "#044885",
+        playerGradientTo: "#06579f"
       },
     },
   },

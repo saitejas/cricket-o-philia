@@ -7,6 +7,8 @@ export default function CustomRouter(){
     return(
         <Routes>
             <Route path="/" element={<Players/>}></Route>
+            <Route path="/home" element={<Players/>}></Route>
+            <Route path="*" element={<Players/>}></Route>
             <Route path="player" element={<PlayerDetails/>}></Route>
         </Routes>
     )

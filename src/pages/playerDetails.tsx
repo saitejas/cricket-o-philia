@@ -90,7 +90,7 @@ export default function PlayerDetails() {
         </div>
       </div>
 
-      <div className="rounded-lg shadow p-4 bg-gradient-to-r from-[#044885] to-[#06579f] text-white mb-[20px]" >
+      <div className="rounded-lg shadow p-4 bg-gradient-to-r from-playerGradientFrom to-playerGradientTo text-white mb-[20px]" >
         <div className="text-[22px] text-white mb-[10px] font-extrabold">Description</div>
         <p className="w-[80%] mb-[20px]">{currentPlayer.description}</p>
         {similarPlayers.length > 0 && <div className="mt-[100px]">

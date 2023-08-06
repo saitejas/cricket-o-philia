@@ -9,6 +9,7 @@ import { Loader } from "../components/loader";
 export default function Players() {
   const [isDataLoading, setIsDataLoading] = useState<boolean>(true);
   const [playersData, setPlayersData] = useState<TPlayer[]>([]);
+  const columnsToBeDisplayedInTheTable = ['name', 'rank', 'type', 'points', 'description'];
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,6 +25,10 @@ export default function Players() {
     setIsDataLoading(false);
   };
 
+  const onSelectingAPlayer = (player: TPlayer) => {
+    navigate('/player', {state:{playerDetails: player}});
+  }
+
   return (
     <div>
       <h1 className="text-center text-white text-[120px] font-handjet">Cricket-O-Philia</h1>
@@ -33,7 +38,7 @@ export default function Players() {
         </div>
       ) : (
         <div className="container">
-          <PlayersTable data={playersData} navigate={navigate} />
+          <PlayersTable data={playersData} onSelectingAPlayer={onSelectingAPlayer} columns={columnsToBeDisplayedInTheTable} />
         </div>
       )}
     </div>
