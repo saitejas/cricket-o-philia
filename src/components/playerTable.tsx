@@ -18,7 +18,7 @@ export function PlayersTable ({ data, navigate }: { data: TPlayer[], navigate: a
     const [filterType, setFilterType] = useState(
       readFromStorage("filterType") ?? ""
     );
-    const columns = ['Name', 'Rank', 'Type', 'Points', 'Description'];
+    const columns = ['name', 'rank', 'type', 'points', 'description'];
 
     const startIndex = (currentPage - 1) * pageSize;
     const endIndex = startIndex + pageSize;
@@ -80,15 +80,15 @@ export function PlayersTable ({ data, navigate }: { data: TPlayer[], navigate: a
     };
 
     const getFormatedValue = (key: keyof TPlayer, item: TPlayer) => {
-      if(item[key.toLowerCase() as keyof TPlayer]){
-        switch(key.toLowerCase()){
+      if(item[key as keyof TPlayer]){
+        switch(key){
           case 'dob':
             return (moment(new Date(Number(item['dob']))).format('ll'));
           case 'description':
             const description = `${item['description']?.substring(0, 100)}...`
             return description;
           default:
-            return item[key.toLowerCase() as keyof TPlayer]
+            return item[key as keyof TPlayer]
         }
       }
       return '';
@@ -131,10 +131,10 @@ export function PlayersTable ({ data, navigate }: { data: TPlayer[], navigate: a
                           key={index}
                           scope="col"
                           className="px-6 py-3 text-sm font-semibold tracking-wider cursor-pointer"
-                          onClick={() => handleSort(key.toLowerCase())}
+                          onClick={() => handleSort(key)}
                         >
                           {String(key).toUpperCase()}
-                          {sortKey.toLowerCase() === key.toLowerCase() && (
+                          {sortKey === key && (
                             <span className="ml-1">
                               {sortDirection === "asc" ? "↑" : "↓"}
                             </span>
@@ -153,14 +153,14 @@ export function PlayersTable ({ data, navigate }: { data: TPlayer[], navigate: a
                           key={key}
                           onClick={() => navigate('/player', {state:{playerDetails: paginatedData[index]}})}
                           className={`px-6 py-4 text-white  ${
-                            String(item[key.toLowerCase() as keyof TPlayer] || "").length >
+                            String(item[key as keyof TPlayer] || "").length >
                             100
                               ? "whitespace-normal"
                               : "whitespace-nowrap"
                           } text-sm`}
                         >
                           <div className="flex items-center rounded-[10px]">
-                            {key === 'Name' && <img
+                            {key === 'name' && <img
                                 src={item.avatar}
                                 className="h-[30px] w-[35px] mr-[20px]"
                                 alt="Player Avatar"
