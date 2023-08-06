@@ -2,9 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+To install dependencies, please run:
+
+### `npm install`
+
+Then start the application by running:
 
 ### `npm start`
 
@@ -14,33 +18,26 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
+## Available Scripts
+
+In the project directory, you can trigger unit tests by running:
+
+### `npm run test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Time taken to implement
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+It took nearly,
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* ~3 to 3.5 hours to complete all the functional requirements
+* ~3 hours for unit tests (Just learnt and implemented tests - so it took sometime)
+* ~3 hours for Final CSS beautification (Took some time because I had to think and come up with the designs and then implement those)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Screenshots of implementation
 
-### `npm run eject`
+<img width="1615" alt="Screenshot 2023-08-06 at 6 36 47 PM" src="https://github.com/saitejas/cricket-o-philia/assets/21233636/56814a30-b389-4329-8170-5f75e041b341">
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img width="1671" alt="Screenshot 2023-08-06 at 6 36 26 PM" src="https://github.com/saitejas/cricket-o-philia/assets/21233636/8b773c42-1ea7-4393-b256-f65386080959">
